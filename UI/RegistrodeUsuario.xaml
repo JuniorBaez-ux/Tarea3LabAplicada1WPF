@@ -56,12 +56,6 @@
                 <TextBox x:Name="EmailTextBox" Height="15" Width="90" Margin="5,0"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="10,10">
-                
-            <Label Content="RolID"/>
-            <TextBox x:Name="RolIDTextBox" Height="15" Width="90" Margin="5,0" IsReadOnly="True"/>
-            </StackPanel>
-
             <StackPanel Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
                 <Button x:Name="NuevoButton" Height="70" Width="70" Margin="15,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Vertical">
