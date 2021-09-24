@@ -12,7 +12,6 @@ namespace Tarea3LabAplicada1.Entidades
     {
         [Key]
         public int UsuarioID { get; set; }
-        public string Clave { get; set; }
         public string Nombres { get; set; }
         public string Email { get; set; }
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
@@ -20,7 +19,24 @@ namespace Tarea3LabAplicada1.Entidades
         public string Alias { get; set; }
         public bool Activo { get; set; }
 
-        //[ForeignKey("RolID")]
-        //public virtual Roles Rol { get; set; }
+        public Usuarios()
+        {
+            UsuarioID = 0;
+            FechaIngreso = DateTime.Now;
+            Alias = string.Empty;
+            Nombres = string.Empty;
+            Email = string.Empty;
+            Activo = false;
+        }
+
+        public Usuarios(int usuarioId, DateTime fechaIngreso, string alias, string nombres, string email, bool activo)
+        {
+            UsuarioID = usuarioId;
+            FechaIngreso = fechaIngreso;
+            Alias = alias;
+            Nombres = nombres;
+            Email = email;
+            Activo = activo;
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace Tarea3LabAplicada1.UI
             usuario = LlenarClase();
             paso = UsuariosBLL.Guardar(usuario);
 
-            if (!ExisteEnLaBaseDeDatos())
+            if (paso)
             {
                 Limpiar();
                 MessageBox.Show("Usuario guardado correctamente", "Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -153,7 +153,6 @@ namespace Tarea3LabAplicada1.UI
             {
                 RolComboBox.Text = "Abogado";
             }
-            //ClaveTextBox.Text = usuarios.Clave;
             FechaIngresoDatePicker.SelectedDate = usuarios.FechaIngreso;
             ActivoChecBox.IsChecked = usuarios.Activo;
         }
@@ -162,7 +161,6 @@ namespace Tarea3LabAplicada1.UI
         {
             Usuarios usuarios = new Usuarios();
             usuarios.UsuarioID = Utilidades.ToInt(IDTextbox.Text);
-            //usuarios.Clave = ClaveTextBox.Text;
             usuarios.Email = EmailTextBox.Text;
             usuarios.Nombres = NombreTextbox.Text;
             usuarios.FechaIngreso = (DateTime)FechaIngresoDatePicker.SelectedDate;
@@ -257,12 +255,12 @@ namespace Tarea3LabAplicada1.UI
                 EmailTextBox.Focus();
                 paso = false;
             }
-            if (UsuariosBLL.ExisteAlias(AliasTextbox.Text))
-            {
-                MessageBox.Show("Este Alias ya existe");
-                AliasTextbox.Focus();
-                paso = false;
-            }
+            //if (UsuariosBLL.ExisteAlias(AliasTextbox.Text))
+            //{
+            //    MessageBox.Show("Este Alias ya existe");
+            //    AliasTextbox.Focus();
+            //    paso = false;
+            //}
             //if (string.Equals(ClaveTextBox.Text, ConfirmClaveTextBox.Text) != true)
             //{
             //    Errores.SetError(ConfirmClaveTextBox, "La clave es distinta");

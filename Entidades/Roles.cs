@@ -11,9 +11,7 @@ namespace Tarea3LabAplicada1.Entidades
     {
         [Key]
         public int RolID { get; set; }
-
         public DateTime FechaIngreso { get; set; }
-
         public string Descripcion { get; set; }
     }
 }

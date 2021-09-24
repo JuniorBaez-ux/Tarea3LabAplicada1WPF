@@ -45,9 +45,6 @@ namespace Tarea3LabAplicada1.Migrations
                     b.Property<string>("Alias")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Clave")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
@@ -62,20 +59,7 @@ namespace Tarea3LabAplicada1.Migrations
 
                     b.HasKey("UsuarioID");
 
-                    b.HasIndex("RolID");
-
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("Tarea3LabAplicada1.Entidades.Usuarios", b =>
-                {
-                    b.HasOne("Tarea3LabAplicada1.Entidades.Roles", "Rol")
-                        .WithMany()
-                        .HasForeignKey("RolID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Rol");
                 });
 #pragma warning restore 612, 618
         }

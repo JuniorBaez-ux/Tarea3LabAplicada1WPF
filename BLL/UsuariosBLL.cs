@@ -25,7 +25,7 @@ namespace Tarea3LabAplicada1.BLL
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Usuarios.Add(usuario);
+                if (contexto.Usuarios.Add(usuario) != null)
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -126,25 +126,25 @@ namespace Tarea3LabAplicada1.BLL
             return encontrado;
         }
 
-        public static bool ExisteAlias(string buscaralias)
-        {
-            Contexto contexto = new Contexto();
-            bool encontrado = false;
-            try
-            {
-                encontrado = contexto.Usuarios.Any(e => e.Alias == buscaralias);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
+        //public static bool ExisteAlias(string buscaralias)
+        //{
+        //    Contexto contexto = new Contexto();
+        //    bool encontrado = false;
+        //    try
+        //    {
+        //        encontrado = contexto.Usuarios.Any(e => e.Alias == buscaralias);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        contexto.Dispose();
+        //    }
 
-            return encontrado;
-        }
+        //    return encontrado;
+        //}
 
         public static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> criterio)
         {
