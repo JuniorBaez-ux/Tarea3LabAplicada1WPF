@@ -21,7 +21,7 @@ namespace Tarea3LabAplicada1.UI
     /// </summary>
     public partial class RegistrodeUsuario : Window
     {
-        public object UsuarioBLL { get; private set; }
+        Usuarios usuario = new Usuarios();
 
         public RegistrodeUsuario()
         {
@@ -44,13 +44,10 @@ namespace Tarea3LabAplicada1.UI
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id;
-            Usuarios usuario = new Usuarios();
-            int.TryParse(IDTextbox.Text, out id);
-
-            Limpiar();
-
+            id = Utilidades.ToInt(IDTextbox.Text.ToString());
             usuario = UsuariosBLL.Buscar(id);
 
+            Limpiar();
             if (usuario != null)
             {
                 MessageBox.Show("Persona Encotrada");
@@ -101,7 +98,6 @@ namespace Tarea3LabAplicada1.UI
             AliasTextbox.Clear();
             NombreTextbox.Clear();
             EmailTextBox.Clear();
-            RolIDTextBox.Clear();
             FechaIngresoDatePicker.SelectedDate = DateTime.Now;
             ActivoChecBox.IsChecked = false;
             RolComboBox.Text = "";
